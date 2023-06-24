@@ -1,0 +1,107 @@
+@use "../variables.module.scss" as variables;
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 36px;
+    margin-top: 160px;
+    margin-bottom: 48px;
+}
+
+.searchParams,
+.firstPosts {
+    display: flex;
+    flex-direction: row;
+}
+
+.searchParams input {
+    border: 2px solid variables.$color-secondary;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: clamp(360px, 80vw, 1320px);
+}
+
+.firstPosts {
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 36px;
+    row-gap: 36px;
+}
+
+.postsBig {
+    display: flex;
+    flex-direction: column;
+    row-gap: 36px;
+}
+
+.postBig {
+    box-sizing: border-box;
+    width: clamp(360px, 28vw, 444px);
+    height: 222px;
+    border: 2px solid variables.$color-secondary;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 36px;
+    row-gap: 36px;
+    max-width: 1400px;
+    overflow: hidden;
+}
+
+.post {
+    box-sizing: border-box;
+    width: 360px;
+    height: 222px;
+    border: 2px solid variables.$color-secondary;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.postBig::after,
+.post::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background-image: linear-gradient(transparent, variables.$color-primary);
+    pointer-events: none;
+}
+
+.dreams {
+    position: relative;
+}
+
+.description {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 24px;
+    padding-top: 12px;
+    height: 76px;
+    width: 360px;
+    bottom: 7px;
+    transition: height 0.6s ease, background-color 0.3s ease;
+}
+  
+.description h2 {
+    text-align: center;
+    font-size: 2.25em;
+    font-weight: 900;
+}

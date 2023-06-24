@@ -1,0 +1,144 @@
+@use "../app/variables.module.scss" as variables;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 36px;
+  margin-top: 160px;
+  margin-bottom: 48px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  row-gap: 36px;
+  column-gap: 72px;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+}
+
+.description {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 24px;
+  padding-top: 12px;
+  height: 76px;
+  width: 360px;
+  bottom: 7px;
+  transition: height 0.6s ease, background-color 0.3s ease;
+}
+
+.description h2 {
+  text-align: center;
+  font-size: 2.25em;
+  font-weight: 900;
+}
+
+.description p {
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.description button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 336px;
+  margin-top: 12px;
+  color: white;
+  background-color: variables.$color-secondary;
+  transition: all 0.3s ease;
+}
+
+.description p,
+.description button {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  transition-delay: 0s;
+}
+
+.card:hover .description p {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+.card:hover .description button {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: .35s;
+}
+
+.card:hover .description {
+  height: 280px;
+  cursor: auto;
+  border: 2px solid variables.$color-secondary;
+  background-color: aquamarine;
+  transition-delay: 0s;
+}
+
+.colorPattern {
+  color: white;
+}
+
+.card:hover .colorPattern {
+  background-color: rgb(42, 33, 119);
+}
+
+.text {
+  text-align: center;
+  padding: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: 2px solid variables.$color-secondary;
+}
+
+.explore {
+  text-align: center;
+}
+
+.explore button {
+  margin-top: 12px;
+  color: white;
+  background-color: variables.$color-secondary;
+  transition: all 0.3s ease;
+}
+
+.colorPattern button {
+  color: variables.$color-secondary;
+  background-color: variables.$color-primary;
+}
+
+.explore button:hover,
+.description button:hover {
+  background-color: variables.$color-tertiary;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.hoveredRight {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.hoveredLeft {
+  transform: rotate(-90deg);
+  transition: transform 0.3s ease;
+}
+
+.hoveredBottom {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}

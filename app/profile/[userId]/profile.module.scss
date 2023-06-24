@@ -1,0 +1,172 @@
+@use "../../variables.module.scss" as variables;
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 36px;
+    margin-top: 160px;
+    margin-bottom: 48px;
+}
+
+.postBigImage {
+    box-sizing: border-box;
+    width: clamp(360px, 28vw, 444px);
+    height: 222px;
+    border: 2px solid variables.$color-secondary;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: hidden;
+    position: relative;
+    background-color: variables.$color-secondary;
+}
+
+.postBig {
+    box-sizing: border-box;
+    width: clamp(360px, 28vw, 444px);
+    height: 222px;
+    border: 2px solid variables.$color-secondary;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.postBig::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background-image: linear-gradient(transparent, variables.$color-primary);
+    pointer-events: none;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.imageRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 36px;
+    row-gap: 36px;
+    max-width: 1400px;
+    overflow: hidden;
+}
+
+.post {
+    box-sizing: border-box;
+    width: 360px;
+    height: 222px;
+    border: 2px solid variables.$color-secondary;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.positionName {
+    display: flex;
+    justify-content: center;
+}
+
+.position {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 156px;
+    width: 48px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    height: 156px;
+    width: 48px;
+}
+
+.right p {
+    text-align: right;
+    margin-top: auto;
+}
+
+.left p {
+    text-align: left;
+    margin-top: auto;
+}
+
+.right p span,
+.left p span {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 36px;
+}
+
+.modalBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 36px;
+    border: 2px solid variables.$color-secondary;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: variables.$color-primary;
+}
+  
+.modal h2 {
+    color: variables.$color-secondary;
+}
+  
+.modal p {
+    row-gap: 8px;
+    color: variables.$color-secondary;
+    cursor: pointer;
+}
+  
+.modal button {
+    background-color: variables.$color-secondary;
+    color: variables.$color-primary;
+}
+
+.starPosition {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 8px;
+    cursor: pointer;
+}

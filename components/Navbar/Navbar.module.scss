@@ -1,0 +1,138 @@
+@use "/app/variables.module.scss" as variables;
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: calc(100vw - 72px);
+    background-color: variables.$color-primary;
+    z-index: 998;
+}
+
+.navbar,
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar {
+    padding: 12px;
+    padding-right: 36px;
+    padding-left: 36px;
+    border-bottom: 2px solid variables.$color-secondary;
+}
+
+.lilNavbar {
+    position: fixed;
+    top: 0;
+    width: calc(100vw - 72px);
+    background-color: variables.$color-primary;
+    z-index: 998;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+    padding-right: 36px;
+    padding-left: 36px;
+    border-bottom: 2px solid variables.$color-secondary;
+}
+
+.nav {
+    column-gap: 24px;
+}
+
+.burgr,
+.navStyle,
+.navStyleInverse {
+    padding: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: 2px solid variables.$color-primary;
+    transition: all 0.3s ease;
+}
+
+.navStyle:hover {
+    border: 2px solid variables.$color-tertiary;
+}
+
+.navStyleInverse {
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+}
+
+.navStyleInverse:hover {
+    background-color: variables.$color-tertiary;
+    border: 2px solid variables.$color-tertiary;
+}
+
+.active {
+    border: 2px solid variables.$color-secondary;
+}
+
+.logo {
+    position: absolute;
+    display: block;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.lilogo {
+    position: absolute;
+    display: none;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.night {
+    width: 360px;
+    height: 480px;
+    background-color: aquamarine;
+}
+
+.burgr {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 1020px) {
+    .navbar {
+        display: none;
+        top: 60px;
+        width: 120px;
+        border: 2px solid variables.$color-secondary;
+        border-left: none;
+    }
+
+    .navbar,
+    .nav {
+        flex-direction: column;
+        row-gap: 8px;
+    }
+
+    .navStyle {
+        text-align: left;
+    }
+  
+    .burgr {
+      display: block;
+    }
+}
+
+@media (max-width: 534px) {
+    .logo {
+        display: none;
+    }
+
+    .lilogo {
+        display: block;
+    }
+}
+
+.showMenu {
+    display: flex;
+}

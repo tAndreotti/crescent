@@ -1,0 +1,35 @@
+@use "../variables.module.scss" as variables;
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(160px, 32vh, 720px);
+    margin-bottom: 48px;
+}
+
+.position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: clamp(480px, 80vw, 800px);
+}
+
+.position h1 {
+    font-size: 4em;
+    font-weight: 900;
+}
+
+.position h3 {
+    margin-top: 48px;
+    margin-bottom: 12px;
+}
+
+.text {
+    text-align: center;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 2px solid variables.$color-secondary;
+}
