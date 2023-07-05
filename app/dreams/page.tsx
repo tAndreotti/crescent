@@ -20,7 +20,7 @@ const Dreams = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let url = 'http://localhost:3030/posts?category=dreams';
+        let url = 'https://crescent-cmxzospgf-tandreotti.vercel.app/posts?category=dreams';
     
         if (searchQuery) {
           url += `&search=${searchQuery}`;

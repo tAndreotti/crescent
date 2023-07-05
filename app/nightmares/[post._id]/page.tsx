@@ -46,7 +46,7 @@ const Nightmares = () => {
         let user = null;
 
         try {
-          const myIdResponse = await axios.get('http://localhost:3030/auth/user', { withCredentials: true });
+          const myIdResponse = await axios.get('https://crescent-cmxzospgf-tandreotti.vercel.app/auth/user', { withCredentials: true });
           user = myIdResponse.data;
           myId = user?._id || ""; // Obtém o ID do usuário ou define uma string vazia caso o usuário esteja deslogado
         } catch (error) {
@@ -57,14 +57,14 @@ const Nightmares = () => {
 
         const postId = window.location.pathname.split('/').pop(); // Obtém o último segmento da URL como o ID do post
 
-        const response = await axios.get(`http://localhost:3030/posts/${postId}`);
+        const response = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${postId}`);
         setPost(response.data);
 
         const postUserId = response.data.userId;
         setFriendId(postUserId);
 
         // Fazer a requisição do nome dos amigos utilizando o ID
-        const friendsResponse = await axios.get(`http://localhost:3030/users/${user._id}/friends`);
+        const friendsResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${user._id}/friends`);
         const friends = friendsResponse.data;
         const friendIds = friends.map((friend: User) => friend._id);
         setIsFriend(friendIds.includes(postUserId));
@@ -94,11 +94,11 @@ const Nightmares = () => {
     try {
       if (isFriend) {
         // Remover o amigo
-        await axios.patch(`http://localhost:3030/users/${myId}/${friendId}`, { withCredentials: true });
+        await axios.patch(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${myId}/${friendId}`, { withCredentials: true });
         setIsFriend(false);
       } else {
         // Adicionar o amigo
-        await axios.patch(`http://localhost:3030/users/${myId}/${friendId}`, { withCredentials: true });
+        await axios.patch(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${myId}/${friendId}`, { withCredentials: true });
         setIsFriend(true);
       }
     } catch (error) {
@@ -117,7 +117,7 @@ const Nightmares = () => {
   const handleDelete = async () => {
     try {
       const postId = window.location.pathname.split('/').pop();
-      await axios.delete(`http://localhost:3030/posts/${myId}/${postId}`, { withCredentials: true });
+      await axios.delete(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${myId}/${postId}`, { withCredentials: true });
       
       // Redirecionar o usuário para a página desejada após o login
       router.push('/profile');
@@ -141,7 +141,7 @@ const Nightmares = () => {
 
     try {
       const postId = window.location.pathname.split('/').pop();
-      const response = await axios.patch(`http://localhost:3030/posts/${myId}/${postId}`, {
+      const response = await axios.patch(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${myId}/${postId}`, {
         text,
       },{ withCredentials: true });
 

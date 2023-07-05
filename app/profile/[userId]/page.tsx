@@ -44,7 +44,7 @@ const UserProfile = () => {
         };
 
         // Fazer a requisição dos posts do usuário logado utilizando o ID
-        const response = await axios.get(`http://localhost:3030/posts/${userId}/posts`);
+        const response = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${userId}/posts`);
         setPosts(response.data);
 
         // Fazer uma chamada para obter o ID do usuário logado e armazená-lo no estado
@@ -52,7 +52,7 @@ const UserProfile = () => {
         let user = null;
 
         try {
-          const myIdResponse = await axios.get('http://localhost:3030/auth/user', { withCredentials: true });
+          const myIdResponse = await axios.get('https://crescent-cmxzospgf-tandreotti.vercel.app/auth/user', { withCredentials: true });
           user = myIdResponse.data;
           myId = user?._id || ""; // Obtém o ID do usuário ou define uma string vazia caso o usuário esteja deslogado
         } catch (error) {
@@ -61,18 +61,18 @@ const UserProfile = () => {
         }
         setMyId(myId);
 
-        const userResponse = await axios.get(`http://localhost:3030/users/${userId}`);
+        const userResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${userId}`);
         setUserName(userResponse.data.username);
 
         // Fazer a requisição do número de sonhos e pesadelos postados
-        const dreamResponse = await axios.get(`http://localhost:3030/posts/${userId}/posts?category=dreams`);
+        const dreamResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${userId}/posts?category=dreams`);
         setDreamCount(dreamResponse.data.length);
 
-        const nightmareResponse = await axios.get(`http://localhost:3030/posts/${userId}/posts?category=nightmares`);
+        const nightmareResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${userId}/posts?category=nightmares`);
         setNightmareCount(nightmareResponse.data.length);
 
         // Fazer a requisição do nome dos amigos utilizando o ID
-        const friendsResponse = await axios.get(`http://localhost:3030/users/${myId}/friends`);
+        const friendsResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${myId}/friends`);
         const friends = friendsResponse.data;
         const friendIds = friends.map((friend: User) => friend._id);
         setIsFriend(friendIds.includes(userId));
@@ -89,11 +89,11 @@ const UserProfile = () => {
     try {
       if (isFriend) {
         // Remover o amigo
-        await axios.patch(`http://localhost:3030/users/${myId}/${friendId}`, { withCredentials: true });
+        await axios.patch(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${myId}/${friendId}`, { withCredentials: true });
         setIsFriend(false);
       } else {
         // Adicionar o amigo
-        await axios.patch(`http://localhost:3030/users/${myId}/${friendId}`, { withCredentials: true });
+        await axios.patch(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${myId}/${friendId}`, { withCredentials: true });
         setIsFriend(true);
       }
     } catch (error) {

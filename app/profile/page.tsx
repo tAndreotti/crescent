@@ -38,26 +38,26 @@ const Profile = () => {
     const fetchData = async () => {
       try {
         // Fazer uma chamada para obter o ID do usuário logado e armazená-lo no estado
-        const userResponse = await axios.get('http://localhost:3030/auth/user', { withCredentials: true });
+        const userResponse = await axios.get('https://crescent-cmxzospgf-tandreotti.vercel.app/auth/user', { withCredentials: true });
         const user = userResponse.data;
 
         // Fazer a requisição do nome do usuário logado utilizando o ID
-        const usernameResponse = await axios.get(`http://localhost:3030/users/${user._id}`);
+        const usernameResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${user._id}`);
         setUserName(usernameResponse.data.username);
         
         // Fazer a requisição do nome dos amigos utilizando o ID
-        const friendsResponse = await axios.get(`http://localhost:3030/users/${user._id}/friends`);
+        const friendsResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/users/${user._id}/friends`);
         setFollowing(friendsResponse.data);
 
         // Fazer a requisição do número de sonhos e pesadelos postados
-        const dreamResponse = await axios.get(`http://localhost:3030/posts/${user._id}/posts?category=dreams`);
+        const dreamResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${user._id}/posts?category=dreams`);
         setDreamCount(dreamResponse.data.length);
 
-        const nightmareResponse = await axios.get(`http://localhost:3030/posts/${user._id}/posts?category=nightmares`);
+        const nightmareResponse = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${user._id}/posts?category=nightmares`);
         setNightmareCount(nightmareResponse.data.length);
         
         // Fazer a requisição dos posts do usuário logado utilizando o ID
-        const response = await axios.get(`http://localhost:3030/posts/${user._id}/posts`);
+        const response = await axios.get(`https://crescent-cmxzospgf-tandreotti.vercel.app/posts/${user._id}/posts`);
         setPosts(response.data);
 
       } catch (error) {

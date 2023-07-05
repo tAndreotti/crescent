@@ -18,7 +18,7 @@ const Navbar = () => {
   
   const handleLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:3030/auth/logout', null, {
+      const response = await axios.post('https://crescent-cmxzospgf-tandreotti.vercel.app/auth/logout', null, {
         withCredentials: true,
       });
   

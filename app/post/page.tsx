@@ -16,7 +16,7 @@ const Post = (props: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get('http://localhost:3030/auth/user', { withCredentials: true });
+        const userResponse = await axios.get('https://crescent-cmxzospgf-tandreotti.vercel.app/auth/user', { withCredentials: true });
         const user = userResponse.data;
         setUserId(user._id);
       } catch (error) {
@@ -36,7 +36,7 @@ const Post = (props: Props) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3030/posts', {
+      const response = await axios.post('https://crescent-cmxzospgf-tandreotti.vercel.app/posts', {
         userId,
         title,
         text,
