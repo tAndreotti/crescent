@@ -20,7 +20,7 @@ const Nightmares = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let url = 'https://crescent-cmxzospgf-tandreotti.vercel.app/posts?category=nightmares';
+        let url = 'https://crescent-api.vercel.app/posts?category=nightmares';
     
         if (searchQuery) {
           url += `&search=${searchQuery}`;

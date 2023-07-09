@@ -17,7 +17,7 @@ const Login = (props: Props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://crescent-cmxzospgf-tandreotti.vercel.app/auth/login', {
+      const response = await axios.post('https://crescent-api.vercel.app/auth/login', {
         email,
         password,
       }, {
