@@ -48,6 +48,9 @@ const Navbar = () => {
       <div className={styles.lilogo}>
         <Link href="/"><Image src={moon} width={60} height={60} alt="Home" /></Link>
       </div>
+      <div className={styles.logo}>
+        <Link href="/"><Image src={moon} width={80} height={80} alt="Home" /></Link>
+      </div>
     </div>
     <nav className={`${styles.navbar} ${showMenu && styles.showMenu}`}>
       <div className={styles.nav}>
