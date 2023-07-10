@@ -42,15 +42,17 @@ const Navbar = () => {
 
   return (
     <>
-    <div className={styles.lilNavbar}>
-      <Image onClick={() => setShowMenu(!showMenu)} className={styles.burgr} src={burgr} width={24} height={20} alt="Menu" />
-      <div className={styles.burgr}></div>
+    <div className={styles.positionFixed}>
       <div className={styles.lilogo}>
         <Link href="/"><Image src={moon} width={60} height={60} alt="Home" /></Link>
       </div>
       <div className={styles.logo}>
         <Link href="/"><Image src={moon} width={80} height={80} alt="Home" /></Link>
       </div>
+    </div>
+    <div className={styles.lilNavbar}>
+      <Image onClick={() => setShowMenu(!showMenu)} className={styles.burgr} src={burgr} width={24} height={20} alt="Menu" />
+      <div className={styles.burgr}></div>
     </div>
     <nav className={`${styles.navbar} ${showMenu && styles.showMenu}`}>
       <div className={styles.nav}>
@@ -63,9 +65,6 @@ const Navbar = () => {
         <Link href="/nightmares" className={`${styles.navStyle} ${pathname === "/nightmares" && styles.active}`}>
           <h5>Nightmares</h5>
         </Link>
-      </div>
-      <div className={styles.logo}>
-        <Link href="/"><Image src={moon} width={80} height={80} alt="Home" /></Link>
       </div>
       <div className={styles.nav}>
         <Link href="/meanings" className={`${styles.navStyle} ${pathname === "/meanings" && styles.active}`}>

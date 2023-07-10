@@ -136,3 +136,10 @@
 .showMenu {
     display: flex;
 }
+
+.positionFixed {
+    top: 0;
+    width: 100vw;
+    position: fixed;
+    z-index: 999;
+}
