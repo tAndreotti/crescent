@@ -28,7 +28,7 @@ const SignUp = (props: Props) => {
 
       if (response.status === 200) {
         const user = response.data;
-        console.log(user); // Dados do usuário registrado
+        // console.log(user); // Dados do usuário registrado
 
         if (isLoggedIn && isLoggedIn.updateIsLoggedIn) {
           isLoggedIn.updateIsLoggedIn(true);

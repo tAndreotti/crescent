@@ -27,7 +27,7 @@ const Login = (props: Props) => {
 
       if (response.status === 200) {
         const user = response.data;
-        console.log(user); // Dados do usuário logado
+        // console.log(user); // Dados do usuário logado
 
         console.log(isLoggedIn)
         if (isLoggedIn && isLoggedIn.updateIsLoggedIn) {
