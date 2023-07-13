@@ -20,7 +20,7 @@ const Dreams = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let url = 'https://crescent-api.vercel.app/posts?category=dreams';
+        let url = 'https://api.waning.cloud/posts?category=dreams';
     
         if (searchQuery) {
           url += `&search=${searchQuery}`;

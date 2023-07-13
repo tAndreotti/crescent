@@ -18,7 +18,7 @@ const Navbar = () => {
   
   const handleLogout = async () => {
     try {
-      const response = await axios.post('https://crescent-api.vercel.app/auth/logout', null, {
+      const response = await axios.post('https://api.waning.cloud/auth/logout', null, {
         withCredentials: true,
       });
   

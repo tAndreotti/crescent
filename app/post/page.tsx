@@ -16,7 +16,7 @@ const Post = (props: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get('https://crescent-api.vercel.app/auth/user', { withCredentials: true });
+        const userResponse = await axios.get('https://api.waning.cloud/auth/user', { withCredentials: true });
         const user = userResponse.data;
         setUserId(user._id);
       } catch (error) {
@@ -36,7 +36,7 @@ const Post = (props: Props) => {
     }
 
     try {
-      const response = await axios.post('https://crescent-api.vercel.app/posts', {
+      const response = await axios.post('https://api.waning.cloud/posts', {
         userId,
         title,
         text,

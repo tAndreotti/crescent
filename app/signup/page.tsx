@@ -18,7 +18,7 @@ const SignUp = (props: Props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://crescent-api.vercel.app/auth/register', {
+      const response = await axios.post('https://api.waning.cloud/auth/register', {
         email,
         password,
         username,

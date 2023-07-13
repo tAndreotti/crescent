@@ -17,7 +17,7 @@ const Login = (props: Props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://crescent-api.vercel.app/auth/login', {
+      const response = await axios.post('https://api.waning.cloud/auth/login', {
         email,
         password,
       }, {
