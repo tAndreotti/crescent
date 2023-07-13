@@ -36,7 +36,7 @@ const Login = (props: Props) => {
         console.log(isLoggedIn)
 
         // Redirecionar o usuário para a página desejada após o login
-        // router.push('/');
+        router.push('/');
 
       } else {
         console.log(response.data.msg); // Mensagem de erro da API
