@@ -28,6 +28,8 @@ const Navbar = () => {
         if (isLoggedIn && isLoggedIn.updateIsLoggedIn) {
           isLoggedIn.updateIsLoggedIn(false);
         }
+        // Sumir com o burgr
+        setShowMenu(false);
         // Redirecionar o usuário para a página de login ou outra página desejada
         router.push('/login');
       } else {
@@ -56,26 +58,26 @@ const Navbar = () => {
     </div>
     <nav className={`${styles.navbar} ${showMenu && styles.showMenu}`}>
       <div className={styles.nav}>
-        <Link href="/" className={`${styles.navStyle} ${pathname === "/" && styles.active}`}>
+        <Link href="/" onClick={() => setShowMenu(false)} className={`${styles.navStyle} ${pathname === "/" && styles.active}`}>
           <h5>Home</h5>
         </Link>
-        <Link href="/dreams" className={`${styles.navStyle} ${pathname === "/dreams" && styles.active}`}>
+        <Link href="/dreams" onClick={() => setShowMenu(false)} className={`${styles.navStyle} ${pathname === "/dreams" && styles.active}`}>
           <h5>Dreams</h5>
         </Link>
-        <Link href="/nightmares" className={`${styles.navStyle} ${pathname === "/nightmares" && styles.active}`}>
+        <Link href="/nightmares" onClick={() => setShowMenu(false)} className={`${styles.navStyle} ${pathname === "/nightmares" && styles.active}`}>
           <h5>Nightmares</h5>
         </Link>
       </div>
       <div className={styles.nav}>
-        <Link href="/meanings" className={`${styles.navStyle} ${pathname === "/meanings" && styles.active}`}>
+        <Link href="/meanings" onClick={() => setShowMenu(false)} className={`${styles.navStyle} ${pathname === "/meanings" && styles.active}`}>
           <h5>Meanings</h5>
         </Link>
         {isLoggedIn && isLoggedIn.isLoggedIn ? (
           <>
-            <Link href="/post" className={`${styles.navStyle} ${pathname === "/post" && styles.active}`}>
+            <Link href="/post" onClick={() => setShowMenu(false)} className={`${styles.navStyle} ${pathname === "/post" && styles.active}`}>
               <h5>Post</h5>
             </Link>
-            <Link href="/profile" className={`${styles.navStyle} ${pathname === "/profile" && styles.active}`}>
+            <Link href="/profile" onClick={() => setShowMenu(false)} className={`${styles.navStyle} ${pathname === "/profile" && styles.active}`}>
               <h5>My Posts</h5>
             </Link>
             <button onClick={handleLogout} className={`${styles.navStyle}`}>
@@ -84,10 +86,10 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link href="/login" className={`${styles.navStyle} ${pathname === "/login" && styles.active}`}>
+            <Link href="/login" onClick={() => setShowMenu(false)} className={`${styles.navStyle} ${pathname === "/login" && styles.active}`}>
               <h5>Login</h5>
             </Link>
-            <Link href="/signup" className={`${styles.navStyleInverse} ${pathname === "/signup" && styles.active}`}>
+            <Link href="/signup" onClick={() => setShowMenu(false)} className={`${styles.navStyleInverse} ${pathname === "/signup" && styles.active}`}>
               <h5>Sign Up</h5>
             </Link>
           </>
