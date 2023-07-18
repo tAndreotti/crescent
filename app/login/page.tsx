@@ -34,7 +34,7 @@ const Login = (props: Props) => {
     }
   
     return isValid;
-  };  
+  };
 
   const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();

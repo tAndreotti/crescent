@@ -11,11 +11,46 @@ const SignUp = (props: Props) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [loginError, setLoginError] = useState("");
   const router = useRouter();
   const isLoggedIn = useContext(AuthContext);
 
+  const validateForm = () => {
+    let isValid = true;
+  
+    if (!username || username.length < 2) {
+      setUsernameError("Username should have at least 2 characters");
+      isValid = false;
+    } else {
+      setUsernameError("");
+    }
+    
+    if (!email || !email.includes("@")) {
+      setEmailError("Invalid email");
+      isValid = false;
+    } else {
+      setEmailError("");
+    }
+  
+    if (!password || password.length < 6) {
+      setPasswordError("Password should have at least 6 characters");
+      isValid = false;
+    } else {
+      setPasswordError("");
+    }
+  
+    return isValid;
+  };
+
   const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
 
     try {
       const response = await axios.post('https://api.waning.cloud/auth/register', {
@@ -55,16 +90,20 @@ const SignUp = (props: Props) => {
           <div className={styles.formInput}>
             <label htmlFor="username"><h4>Username:</h4></label>
             <input onChange={(e) => setUsername(e.target.value)} value={username} type="text" id='username' placeholder='Insert your email' />
+            {usernameError && <div className={styles.error}>{usernameError}</div>}
           </div>
           <div className={styles.formInput}>
             <label htmlFor="email"><h4>Email:</h4></label>
             <input onChange={(e) => setEmail(e.target.value)} value={email} type="text" id='email' placeholder='Insert your email' />
+            {emailError && <div className={styles.error}>{emailError}</div>}
           </div>
           <div className={styles.formInput}>
             <label htmlFor="password"><h4>Password:</h4></label>
             <input onChange={(e) => setPassword(e.target.value)} value={password} type="password" id='password' placeholder='Insert your password' />
+            {passwordError && <div className={styles.error}>{passwordError}</div>}
           </div>
           <button className={styles.buttonStyle} type='submit'><h3>Sign Up</h3></button>
+          {loginError && <div className={styles.error}>{loginError}</div>}
         </form>
       </div>
     </div>
