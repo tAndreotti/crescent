@@ -75,10 +75,12 @@ const SignUp = (props: Props) => {
       } else {
         console.log(response.data.msg); // Mensagem de erro da API
         // Exibir mensagem de erro para o usuário
+        setLoginError("Invalid information");
       }
     } catch (error) {
       console.log(error); // Tratar erro de conexão ou outro erro de requisição
       // Exibir mensagem de erro para o usuário
+      setLoginError("Invalid information");
     }
   };
 
