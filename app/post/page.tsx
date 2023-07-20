@@ -9,6 +9,9 @@ type Props = {}
 const Post = (props: Props) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const [titleError, setTitlerror] = useState("");
+  const [textError, setTextError] = useState("");
+  const [submitError, setSubmitError] = useState("");
   const [category, setCategory] = useState<string>("");
   const [userId, setUserId] = useState<string>('');
   const router = useRouter();
@@ -27,8 +30,32 @@ const Post = (props: Props) => {
     fetchData();
   }, []);
 
+  const validateForm = () => {
+    let isValid = true;
+  
+    if (!title || title.length < 2) {
+      setTitlerror("Title should have at least 2 characters");
+      isValid = false;
+    } else {
+      setTitlerror("");
+    }
+    
+    if (!text || text.length < 2) {
+      setTextError("Text should have at least 2 characters");
+      isValid = false;
+    } else {
+      setTextError("");
+    }
+  
+    return isValid;
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
 
     if (category === "") {
       console.log("Please select a category");
@@ -66,10 +93,12 @@ const Post = (props: Props) => {
           <div className={styles.formInput}>
             <label htmlFor="title"><h4>Title:</h4></label>
             <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" id='title' placeholder='Title of the story' />
+            {titleError && <div className={styles.error}>{titleError}</div>}
           </div>
           <div className={styles.formInput}>
             <label htmlFor="text"><h4>Description:</h4></label>
             <textarea onChange={(e) => setText(e.target.value)} value={text} id='text' placeholder='Describe your dream/nightmare' rows={6} />
+            {textError && <div className={styles.error}>{textError}</div>}
           </div>
           <div className={styles.formInput}>
             <label htmlFor="text"><h4>Category:</h4></label>
@@ -83,6 +112,7 @@ const Post = (props: Props) => {
             </div>
           </div>
           <button className={styles.buttonStyle} type='submit'><h3>POST</h3></button>
+          {submitError && <div className={styles.error}>{submitError}</div>}
         </form>
       </div>
     </div>
