@@ -33,15 +33,15 @@ const Post = (props: Props) => {
   const validateForm = () => {
     let isValid = true;
   
-    if (!title || title.length < 2) {
-      setTitlerror("Title should have at least 2 characters");
+    if (!title || title.length < 5) {
+      setTitlerror("Title should have at least 5 characters");
       isValid = false;
     } else {
       setTitlerror("");
     }
     
-    if (!text || text.length < 2) {
-      setTextError("Text should have at least 2 characters");
+    if (!text || text.length < 5) {
+      setTextError("Text should have at least 5 characters");
       isValid = false;
     } else {
       setTextError("");
@@ -78,10 +78,12 @@ const Post = (props: Props) => {
       } else {
         console.log(response.data.msg); // Mensagem de erro da API
         // Exibir mensagem de erro para o usuário
+        setSubmitError("Invalid information");
       }
     } catch (error) {
       console.log(error); // Tratar erro de conexão ou outro erro de requisição
       // Exibir mensagem de erro para o usuário
+      setSubmitError("Invalid information");
     }
   };
 
