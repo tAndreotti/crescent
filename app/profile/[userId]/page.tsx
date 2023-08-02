@@ -104,7 +104,7 @@ const UserProfile = () => {
   return (
     <div className={styles.main}>
       <div className={styles.posts}>
-        <div className={styles.postBigImage}>
+        <div className={`${styles.postLeft} ${styles.postBigImage}`}>
           <Image className={styles.image} src={calendar} width={360} height={222} alt="Calendar" />
         </div>
         <div className={styles.post}>
@@ -141,7 +141,7 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className={styles.postBigImage}>
+        <div className={`${styles.postRight} ${styles.postBigImage}`}>
           <Image className={styles.imageRight} src={post} width={360} height={222} alt="Post" />
         </div>
       </div>

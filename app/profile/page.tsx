@@ -87,7 +87,7 @@ const Profile = () => {
   return (
     <div className={styles.main}>
       <div className={styles.posts}>
-        <div className={styles.postBigImage}>
+        <div className={`${styles.postLeft} ${styles.postBigImage}`}>
           <Image className={styles.image} src={calendar} width={360} height={222} alt="Calendar" />
           <button onClick={openCalendarModal} className={styles.calendarBtn}>Calendar</button>
         </div>
@@ -118,7 +118,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className={styles.postBigImage}>
+        <div className={`${styles.postRight} ${styles.postBigImage}`}>
           <Image className={styles.imageRight} src={post} width={360} height={222} alt="Post" />
           <Link href={`/post`}><button className={styles.postBtn}>POST</button></Link>
         </div>

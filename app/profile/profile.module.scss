@@ -156,6 +156,13 @@
     padding-right: 16px;
     overflow: hidden;
     position: relative;
+}
+
+.postLeft {
+    background-color: variables.$color-secondary;
+}
+
+.postRight {
     background-color: #7CD8FF;
 }
 
