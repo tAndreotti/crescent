@@ -89,7 +89,7 @@ const Post = (props: Props) => {
 
   return (
     <div className={styles.main}>
-      <h1>Sign Up</h1>
+      <h1>New Post</h1>
       <div className={styles.container}>
         <form onSubmit={handleSubmit}>
           <div className={styles.formInput}>
